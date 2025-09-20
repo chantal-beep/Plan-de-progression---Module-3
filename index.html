@@ -1,0 +1,179 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Plan de progression - Module 3</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f7fafc;
+    color: #0f172a;
+  }
+  h1 {
+    text-align: center;
+    color: #1f4e79;
+  }
+  .roadmap {
+    background: #eef6ff;
+    border-left: 6px solid #1f4e79;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+  }
+  .progress-container {
+    width: 100%;
+    background: #e2e8f0;
+    border-radius: 6px;
+    margin: 20px 0;
+  }
+  .progress-bar {
+    height: 20px;
+    width: 0%;
+    background: #1f4e79;
+    border-radius: 6px;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    line-height: 20px;
+    transition: width 0.3s ease;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    margin-top: 15px;
+  }
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  th {
+    background: #1f4e79;
+    color: white;
+  }
+  .section {
+    background: #e2e8f0;
+    font-weight: bold;
+    color: #1f4e79;
+  }
+  /* Message final */
+  #completion-message {
+    display: none;
+    margin-top: 25px;
+    text-align: center;
+    padding: 20px;
+    background: #d1fae5;
+    color: #065f46;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  #completion-message img {
+    display: block;
+    margin: 10px auto 0;
+    width: 100px;
+  }
+</style>
+
+<h1>Module 3 – Assurer l’accueil d’une structure</h1>
+
+<div class="roadmap">
+  <h2>Votre feuille de route</h2>
+  <ul>
+    <li>Cochez la case dans le tableau une fois votre séquence terminée.</li>
+    <li>Découpez votre apprentissage sur la semaine. Ne faites pas tout en une seule fois.</li>
+    <li>Coupez-vous de toutes distractions (téléphones, bruits, emails, réseaux sociaux …).</li>
+    <li>Ne soyez pas perfectionniste : l’essentiel est de comprendre.</li>
+  </ul>
+  <p><strong>Maintenant, c’est à vous !</strong></p>
+</div>
+
+<!-- BARRE DE PROGRESSION -->
+<div class="progress-container">
+  <div class="progress-bar" id="progress-bar">0%</div>
+</div>
+
+<table id="progress-table">
+  <thead>
+    <tr>
+      <th>Thème</th>
+      <th>Contenus</th>
+      <th>Suivi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="section"><td colspan="3">Situer sa fonction d’accueil</td></tr>
+    <tr>
+      <td></td>
+      <td>Qu’est-ce qu’une entreprise ?<br>Exercice<br>Quiz</td>
+      <td><input type="checkbox" class="progress-check"></td>
+    </tr>
+    <tr class="section"><td colspan="3">Organiser son poste</td></tr>
+    <tr>
+      <td></td>
+      <td>J’organise mon espace d’accueil<br>Exercice</td>
+      <td><input type="checkbox" class="progress-check"></td>
+    </tr>
+    <tr class="section"><td colspan="3">Accueillir et orienter un visiteur</td></tr>
+    <tr>
+      <td></td>
+      <td>Les savoir-être<br>Situations difficiles<br>Bonnes formules<br>Profils visiteurs<br>Résumé</td>
+      <td><input type="checkbox" class="progress-check"></td>
+    </tr>
+    <tr class="section"><td colspan="3">Prise de notes</td></tr>
+    <tr>
+      <td></td>
+      <td>Fiche message<br>Registre visiteur</td>
+      <td><input type="checkbox" class="progress-check"></td>
+    </tr>
+    <tr class="section"><td colspan="3">Auto-évaluation</td></tr>
+    <tr>
+      <td></td>
+      <td>Étapes accueil téléphonique<br>Évaluation<br>Exercice formules<br>TP communication<br>Exercice profils</td>
+      <td><input type="checkbox" class="progress-check"></td>
+    </tr>
+    <tr class="section"><td colspan="3">Traiter les appels</td></tr>
+    <tr>
+      <td></td>
+      <td>Fonctionnalités standard<br>Quiz standard<br>Identifier fonctionnalités</td>
+      <td><input type="checkbox" class="progress-check"></td>
+    </tr>
+    <tr class="section"><td colspan="3">Gérer le flux d’appels</td></tr>
+    <tr>
+      <td></td>
+      <td>Gérer le flux<br>Quiz flux d’appels</td>
+      <td><input type="checkbox" class="progress-check"></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- MESSAGE FINAL -->
+<div id="completion-message">
+  🎉 Bravo, vous avez terminé ce module ! <br>
+  Voici votre badge de réussite :
+  <img src="https://i.postimg.cc/VNHSG3Yy/badge.png" alt="Badge de réussite">
+</div>
+
+<script>
+  const checkboxes = document.querySelectorAll('.progress-check');
+  const progressBar = document.getElementById('progress-bar');
+  const completionMessage = document.getElementById('completion-message');
+
+  function updateProgress() {
+    const total = checkboxes.length;
+    const checked = document.querySelectorAll('.progress-check:checked').length;
+    const percent = Math.round((checked / total) * 100);
+    progressBar.style.width = percent + "%";
+    progressBar.textContent = percent + "%";
+
+    if (percent === 100) {
+      completionMessage.style.display = "block";
+    } else {
+      completionMessage.style.display = "none";
+    }
+  }
+
+  checkboxes.forEach(cb => {
+    cb.addEventListener('change', updateProgress);
+  });
+</script>
