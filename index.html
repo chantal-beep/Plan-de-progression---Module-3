@@ -46,6 +46,8 @@
   th, td {
     padding: 10px;
     border: 1px solid #ddd;
+    text-align: left;
+    vertical-align: top;
   }
   th {
     background: #1f4e79;
@@ -72,6 +74,37 @@
     display: block;
     margin: 10px auto 0;
     width: 120px;
+  }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+      width: 100%;
+    }
+    thead {
+      display: none;
+    }
+    tr {
+      margin-bottom: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: #fff;
+      padding: 10px;
+    }
+    td {
+      border: none;
+      padding: 8px 10px;
+    }
+    td:before {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 4px;
+      color: #1f4e79;
+    }
+    td:nth-of-type(1):before { content: "Thème"; }
+    td:nth-of-type(2):before { content: "Contenus"; }
+    td:nth-of-type(3):before { content: "Suivi"; }
   }
 </style>
 
